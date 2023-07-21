@@ -43,20 +43,19 @@ async def command_start(client, message):
             return await message.reply_text(f"- لطفاً اشترك بالقناة واستخدم البوت . \n- ثم اضغط /start \n- @{i} 👾" , quote=True)
 
     if message.text == "/start":
-        await message.reply_text("مرحبا بك معنا في منصة القرآن الكريم على التيليجرام .\n\nللملاحظات و الاقتراحات , لا تتردد في زيارة [قناتنا](t.me/i88Y8) .", disable_web_page_preview=True)
+        await message.reply_text("مرحبا بك معنا في منصة القرآن الكريم على التيليجرام .\n\n[للملاحظات و الاقتراحات](tg://user?id=5719372657) , ولا تتردد في زيارة [قناتنا](t.me/i88Y8) .", disable_web_page_preview=True)
         await message.reply_text("كيف تفضل طريقة الاختيار ؟", reply_markup=ReplyKeyboardMarkup(
             keyboard=[[KeyboardButton("🤍")]], resize_keyboard=True))
 
     if len(message.command) == 2 and message.command[1] == "set_reader":
         keyboard = ReplyKeyboardMarkup(keyboard=[
-            [KeyboardButton("ابراهيم الأخضر"), KeyboardButton("أحمد العجمي")],
-            [KeyboardButton("خالد الجليل"), KeyboardButton("بندر بليلة")],
-            [KeyboardButton("خليفة الطنيجي "), KeyboardButton("حاتم فريد الواعر")],
-            [KeyboardButton("سعود الشريم"), KeyboardButton("سعد الغامدي")],
-            [KeyboardButton("صلاح بو خاطر"), KeyboardButton("ابو بكر الشاطري ")],
-            [KeyboardButton("عبد الرحمن العوسي"), KeyboardButton("عبد الباسط عبد الصمد ")],
-            [KeyboardButton("عبد العزيز الزهراني"), KeyboardButton("عبد الرشيد صوفي")],
-            [KeyboardButton("عبد الله عواد الجهني"), KeyboardButton("عبد الله بصفر")],
+            [KeyboardButton("ابراهيم الأخضر"), KeyboardButton("أحمد العجمي"), KeyboardButton("خالد الجليل")],
+            [KeyboardButton("بندر بليلة"), KeyboardButton("خليفة الطنيج"), KeyboardButton("حاتم فريد الواعر")],
+            [KeyboardButton("سعود الشريم"), KeyboardButton("سعد الغامدي"), KeyboardButton("صلاح بو خاطر")],
+            [KeyboardButton("ابو بكر الشاطري"), KeyboardButton("عبد الرحمن العوسي"), KeyboardButton("عبد الباسط عبد الصمد")],
+            [KeyboardButton("عبد العزيز الزهراني"), KeyboardButton("عبد الرشيد صوفي"), KeyboardButton("عبد الله عواد الجهني")],
+            [KeyboardButton("عبد الله بصفر"), KeyboardButton("علي جابر"), KeyboardButton("علي الحذيفي")],
+            [KeyboardButton("فارس عباد"), KeyboardButton("غسان الشوربجي"), KeyboardButton("ماهر المعيقلي")],
         ],
             resize_keyboard=True, one_time_keyboard=False
         )
@@ -76,17 +75,13 @@ async def shoice_reader(client, message):
 async def shoice_reader(client, message):
     keyboard = ReplyKeyboardMarkup(keyboard=[
         [KeyboardButton("القائمة الرئيسية")],
-        [KeyboardButton("ابراهيم الأخضر"), KeyboardButton("أحمد العجمي")],
-        [KeyboardButton("خالد الجليل"), KeyboardButton("بندر بليلة")],
-        [KeyboardButton("خليفة الطنيجي "), KeyboardButton("حاتم فريد الواعر")],
-        [KeyboardButton("سعود الشريم"), KeyboardButton("سعد الغامدي")],
-        [KeyboardButton("صلاح بو خاطر"), KeyboardButton("ابو بكر الشاطري ")],
-        [KeyboardButton("عبد الرحمن العوسي"), KeyboardButton("عبد الباسط عبد الصمد ")],
-        [KeyboardButton("عبد العزيز الزهراني"), KeyboardButton("عبد الرشيد صوفي")],
-        [KeyboardButton("عبد الله عواد الجهني"), KeyboardButton("عبد الله بصفر")],
-        [KeyboardButton("علي جابر"), KeyboardButton("علي الحذيفي")],
-        [KeyboardButton("فارس عباد"), KeyboardButton("غسان الشوربجي")],
-        [KeyboardButton("ماهر المعيقلي")],
+        [KeyboardButton("ابراهيم الأخضر"), KeyboardButton("أحمد العجمي"), KeyboardButton("خالد الجليل")],
+        [KeyboardButton("بندر بليلة"), KeyboardButton("خليفة الطنيج"), KeyboardButton("حاتم فريد الواعر")],
+        [KeyboardButton("سعود الشريم"), KeyboardButton("سعد الغامدي"), KeyboardButton("صلاح بو خاطر")],
+        [KeyboardButton("ابو بكر الشاطري"), KeyboardButton("عبد الرحمن العوسي"), KeyboardButton("عبد الباسط عبد الصمد")],
+        [KeyboardButton("عبد العزيز الزهراني"), KeyboardButton("عبد الرشيد صوفي"), KeyboardButton("عبد الله عواد الجهني")],
+        [KeyboardButton("عبد الله بصفر"), KeyboardButton("علي جابر"), KeyboardButton("علي الحذيفي")],
+        [KeyboardButton("فارس عباد"), KeyboardButton("غسان الشوربجي"), KeyboardButton("ماهر المعيقلي")],
         ],
         resize_keyboard=True, one_time_keyboard=False
     )
@@ -100,63 +95,29 @@ readers = ["احمد العجمي", "أحمد العجمي", "ابراهيم ا�
 async def shoice_surah(client, message):
     keyboard = ReplyKeyboardMarkup(keyboard=[
         [KeyboardButton("القائمة الرئيسية")],
-        [KeyboardButton("الفاتحة"), KeyboardButton("البقرة")],
-        [KeyboardButton("آل عمران"), KeyboardButton("النساء")],
-        [KeyboardButton("المائدة"), KeyboardButton("الأنعام")],
-        [KeyboardButton("الأعراف"), KeyboardButton("الأنفال")],
-        [KeyboardButton("التوبة"), KeyboardButton("يونس")],
-        [KeyboardButton("هود"), KeyboardButton("يوسف")],
-        [KeyboardButton("الرعد"), KeyboardButton("إبراهيم")],
-        [KeyboardButton("الحجر"), KeyboardButton("النحل")],
-        [KeyboardButton("الإسراء"), KeyboardButton("الكهف")],
-        [KeyboardButton("مريم"), KeyboardButton("طه")],
-        [KeyboardButton("الأنبياء"), KeyboardButton("الحج")],
-        [KeyboardButton("المؤمنون"), KeyboardButton("النور")],
-        [KeyboardButton("الفرقان"), KeyboardButton("الشعراء")],
-        [KeyboardButton("النمل"), KeyboardButton("القصص")],
-        [KeyboardButton("العنكبوت"), KeyboardButton("الروم")],
-        [KeyboardButton("لقمان"), KeyboardButton("السجدة")],
-        [KeyboardButton("الأحزاب"), KeyboardButton("سبأ")],
-        [KeyboardButton("فاطر"), KeyboardButton("يس")],
-        [KeyboardButton("الصافات"), KeyboardButton("ص")],
-        [KeyboardButton("الزمر"), KeyboardButton("غافر")],
-        [KeyboardButton("فصلت"), KeyboardButton("الشورى")],
-        [KeyboardButton("الزخرف"), KeyboardButton("الدخان")],
-        [KeyboardButton("الجاثية"), KeyboardButton("الأحقاف")],
-        [KeyboardButton("محمد"), KeyboardButton("الفتح")],
-        [KeyboardButton("الحجرات"), KeyboardButton("ق")],
-        [KeyboardButton("الذاريات"), KeyboardButton("الطور")],
-        [KeyboardButton("النجم"), KeyboardButton("القمر")],
-        [KeyboardButton("الرحمن"), KeyboardButton("الواقعة")],
-        [KeyboardButton("الحديد"), KeyboardButton("المجادلة")],
-        [KeyboardButton("الحشر"), KeyboardButton("الممتحنة")],
-        [KeyboardButton("الصف"), KeyboardButton("الجمعة")],
-        [KeyboardButton("المنافقون"), KeyboardButton("التغابن")],
-        [KeyboardButton("الطلاق"), KeyboardButton("التحريم")],
-        [KeyboardButton("الملك"), KeyboardButton("القلم")],
-        [KeyboardButton("الحاقة"), KeyboardButton("المعارج")],
-        [KeyboardButton("نوح"), KeyboardButton("الجن")],
-        [KeyboardButton("المزمل"), KeyboardButton("المدثر")],
-        [KeyboardButton("القيامة"), KeyboardButton("الإنسان")],
-        [KeyboardButton("المرسلات"), KeyboardButton("النبأ")],
-        [KeyboardButton("النازعات"), KeyboardButton("عبس")],
-        [KeyboardButton("التكوير"), KeyboardButton("الانفطار")],
-        [KeyboardButton("المطففين"), KeyboardButton("الانشقاق")],
-        [KeyboardButton("البروج"), KeyboardButton("الطارق")],
-        [KeyboardButton("الأعلى"), KeyboardButton("الغاشية")],
-        [KeyboardButton("الفجر"), KeyboardButton("البلد")],
-        [KeyboardButton("الشمس"), KeyboardButton("الليل")],
-        [KeyboardButton("الضحى"), KeyboardButton("الشرح")],
-        [KeyboardButton("التين"), KeyboardButton("العلق")],
-        [KeyboardButton("القدر"), KeyboardButton("البينة")],
-        [KeyboardButton("الزلزلة"), KeyboardButton("العاديات")],
-        [KeyboardButton("القارعة"), KeyboardButton("التكاثر")],
-        [KeyboardButton("العصر"), KeyboardButton("الهمزة")],
-        [KeyboardButton("الفيل"), KeyboardButton("قريش")],
-        [KeyboardButton("الماعون"), KeyboardButton("الكوثر")],
-        [KeyboardButton("الكافرون"), KeyboardButton("النصر")],
-        [KeyboardButton("المسد"), KeyboardButton("الإخلاص")],
-        [KeyboardButton("الفلق"), KeyboardButton("الناس")],
+        [KeyboardButton("النساء"), KeyboardButton("آل عمران"), KeyboardButton("البقرة"), KeyboardButton("الفاتحة")],
+        [KeyboardButton("التوبة"), KeyboardButton("الأنفال"), KeyboardButton("الأعراف"), KeyboardButton("الأنعام")],
+        [KeyboardButton("إبراهيم"), KeyboardButton("الرعد"), KeyboardButton("يوسف"), KeyboardButton("هود")],
+        [KeyboardButton("مريم"), KeyboardButton("الكهف"), KeyboardButton("الإسراء"), KeyboardButton("النحل")],
+        [KeyboardButton("النور"), KeyboardButton("المؤمنون"), KeyboardButton("الحج"), KeyboardButton("الأنبياء")],
+        [KeyboardButton("العنكبوت"), KeyboardButton("القصص"), KeyboardButton("النمل"), KeyboardButton("الشعراء")],
+        [KeyboardButton("سبأ"), KeyboardButton("الأحزاب"), KeyboardButton("السجدة"), KeyboardButton("لقمان")],
+        [KeyboardButton("الزمر"), KeyboardButton("ص"), KeyboardButton("الصافات"), KeyboardButton("يس")],
+        [KeyboardButton("الدّخان"), KeyboardButton("الزخرف"), KeyboardButton("الشورى"), KeyboardButton("فصلت")],
+        [KeyboardButton("الحجرات"), KeyboardButton("الفتح"), KeyboardButton("محمد"), KeyboardButton("الأحقاف")],
+        [KeyboardButton("القمر"), KeyboardButton("النجم"), KeyboardButton("الطور"), KeyboardButton("الذاريات")],
+        [KeyboardButton("الحشر"), KeyboardButton("المجادلة"), KeyboardButton("الحديد"), KeyboardButton("الواقعة")],
+        [KeyboardButton("التغابن"), KeyboardButton("المنافقون"), KeyboardButton("الجمعة"), KeyboardButton("الصف")],
+        [KeyboardButton("الحاقة"), KeyboardButton("القلم"), KeyboardButton("الملك"), KeyboardButton("التحريم")],
+        [KeyboardButton("المدثر"), KeyboardButton("المزمل"), KeyboardButton("الجن"), KeyboardButton("نوح")],
+        [KeyboardButton("النازعات"), KeyboardButton("النبأ"), KeyboardButton("المرسلات"), KeyboardButton("الإنسان")],
+        [KeyboardButton("الإنشقاق"), KeyboardButton("المطففين"), KeyboardButton("الإنفطار"), KeyboardButton("التكوير")],
+        [KeyboardButton("الفجر"), KeyboardButton("الغاشية"), KeyboardButton("الأعلى"), KeyboardButton("الطارق")],
+        [KeyboardButton("الشرح"), KeyboardButton("الضحى"), KeyboardButton("الليل"), KeyboardButton("الشمس")],
+        [KeyboardButton("الزلزلة"), KeyboardButton("البينة"), KeyboardButton("القدر"), KeyboardButton("العلق")],
+        [KeyboardButton("الهمزة"), KeyboardButton("العصر"), KeyboardButton("التكاثر"), KeyboardButton("القارعة")],
+        [KeyboardButton("الكافرون"), KeyboardButton("الكوثر"), KeyboardButton("الماعون"), KeyboardButton("قريش")],
+        [KeyboardButton("الناس"), KeyboardButton("الفلق"), KeyboardButton("الإخلاص"), KeyboardButton("المسد")],
     ],
         resize_keyboard=True, one_time_keyboard=False
     )
@@ -173,7 +134,8 @@ surahss = ["سورة الفاتحة", "سورة البقرة", "سورة آل ع
 async def send_audio(client, message):
     reader = r.hget("QURAN-Reader", message.from_user.id)
     if reader:
-        await message.reply_audio(audio=f"https://t.me/TheHolyQuranIsAudible/{get_audio(reader, message.text)}", caption=""" "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّى" """, quote=True)
+        await message.reply_text(f"`لقد اخترت سورة {message.text.replace('سورة ', '')} من القارئ {reader} برواية حفص عن عاصم - مرتل , ستصل لك في لحظات ..`")
+        await message.reply_audio(audio=f"https://t.me/TheHolyQuranIsAudible/{get_audio(reader, message.text)}")
     else:
         await message.reply_text("فضلا اختر القارئ المراد الاستماع له ...", quote=True, reply_markup=InlineKeyboardMarkup(
             inline_keyboard = [
@@ -181,4 +143,5 @@ async def send_audio(client, message):
             ])
         )
 
+        
 app.run()
