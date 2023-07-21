@@ -42,7 +42,7 @@ async def command_start(client, message):
         if check_member['result']['status'] not in ["creator", "member", "administrator"]:
             return await message.reply_text(f"- لطفاً اشترك بالقناة واستخدم البوت . \n- ثم اضغط /start \n- @{i} 👾" , quote=True)
 
-    if message.text == "/start" or len(message.command) == 2 and message.command[1] == "start"::
+    if message.text == "/start" or len(message.command) == 2 and message.command[1] == "start":
         await message.reply_text("مرحبا بك معنا في منصة القرآن الكريم على التيليجرام .\n\n[للملاحظات و الاقتراحات](tg://user?id=5719372657) , ولا تتردد في زيارة [قناتنا](t.me/i88Y8) .", disable_web_page_preview=True)
         await message.reply_text("كيف تفضل طريقة الاختيار ؟", reply_markup=ReplyKeyboardMarkup(
             keyboard=[[KeyboardButton("🤍")]], resize_keyboard=True))
