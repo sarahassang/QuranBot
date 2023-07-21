@@ -15,7 +15,7 @@ BOT_ID = int(BOT_TOKEN.split(":")[0])
 
 # Client
 
-bot = Client(
+app = Client(
      name = "ClientBot",
      api_id = 9398500,
      api_hash = "ad2977d673006bed6e5007d953301e13",
