@@ -181,7 +181,4 @@ async def send_audio(client, message):
             ])
         )
 
-        
-app.start()
-app.idle()
-#app.run()
+app.run()
