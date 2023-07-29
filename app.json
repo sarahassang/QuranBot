@@ -1,7 +1,7 @@
 {
-    "name": "-",
+    "logo":"https://telegra.ph/file/b544499b6853568ce475f.jpg",
+    "name": "Test",
     "description": "-",
-    "success_url": "https://t.me/i88Y8",
     "env": {
         "TOKEN": {
             "description": "Enter bot token Get It From @botfather.",
@@ -18,18 +18,7 @@
         "SUDO_ID": {
             "description": "Get this value from t.me/myidbot! Please do not steal.",
             "value": ""
-        }
-    },
-    "buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-python.git"
-        }
-    ],
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "eco"
-        }
-    },
-    "stack": "container"
+    "buildpacks": [{
+        "url": "https://github.com/heroku/heroku-buildpack-python.git"
+    }]
 }
