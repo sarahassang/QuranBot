@@ -158,10 +158,11 @@ async def send_audio(client, message):
     reader = r.hget("QURAN-Reader", message.from_user.id)
     if reader:
         await message.reply_text(f"`لقد اخترت سورة {message.text.replace('سورة ', '')} من القارئ {reader} برواية حفص عن عاصم - مرتل , ستصل لك في لحظات ..`")
-        num_reader = available_reciters.index(message.text.replace('سورة ', ''))
+        num_reader = available_reciters.index(reader)
         url = available_urls[num_reader]
-        number = data_souar[message.text]
-        await message.reply_audio(audio=f"{url}{number}")
+        number = data_souar[message.text.replace('سورة ', '')]
+        print(f"{url}{number}")
+        await message.reply_audio(audio=f"{url}{number}.mp3")
 
 # ------------------------------------------------
 
