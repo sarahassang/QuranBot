@@ -1,8 +1,8 @@
-import asyncio, redis, requests, datetime
+import asyncio, redis, requests, datetime, random
 from pyrogram import filters, Client
 from pyrogram.types import KeyboardButton, InlineKeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMarkup, ReplyKeyboardRemove, Message
 
-from helper import available_reciters, available_urls, data_souar
+from helper import available_reciters, available_urls, data_souar, dict_souar
 
 BOT_TOKEN = "5851051301:AAG7Lh2uLioHYqkiQoDyhYc4EE9ohZQVaUY"
 API_ID = 9398500
@@ -43,18 +43,34 @@ async def start_message(client, message):
     if message.text == "/start" or len(message.command) == 2 and message.command[1] == "start":
         await message.reply_text("مرحبا بك معنا في منصة القرآن الكريم على التيليجرام .\n\n[للملاحظات و الاقتراحات](t.me/J_1_E) , ولا تتردد في زيارة [قناتنا](t.me/i88Y8) .", disable_web_page_preview=True)
         await message.reply_text("كيف تفضل طريقة الاختيار ؟", reply_markup=ReplyKeyboardMarkup(
-            keyboard=[[KeyboardButton("🤍")]], resize_keyboard=True))
+            keyboard=[[KeyboardButton("عشوائي ➰"), KeyboardButton("سأختار 🤍")]], resize_keyboard=True))
 
 # ------------------------------------------------
 
 @app.on_message(filters.command(commands='القائمة الرئيسية', prefixes=['!','/',''], case_sensitive=False) & filters.private)
 async def shoice_reader(client, message):
     await message.reply_text("كيف تفضل طريقة الاختيار ؟", quote=True, reply_markup=ReplyKeyboardMarkup(
-        keyboard=[[KeyboardButton("🤍")]], resize_keyboard=True))
+        keyboard=[[KeyboardButton("عشوائي ➰"), KeyboardButton("سأختار 🤍")]], resize_keyboard=True))
 
 # ------------------------------------------------
 
-@app.on_message(filters.command(commands='🤍', prefixes=['!','/',''], case_sensitive=False) & filters.private)
+@app.on_message(filters.command(commands='عشوائي ➰', prefixes=['!','/',''], case_sensitive=False) & filters.private)
+async def random_reader(client, message):
+
+    num_reciter = random.randint(0, 200)
+    url_reciter = available_urls[num_reciter]
+    rand_surah = random.choice(dict_souar)
+    num_surah = data_souar[rand_surah]
+    msg = await message.reply_text(f"`لقد اخترنا لك {rand_surah} من القارئ {available_reciters[num_reciter]} برواية حفص عن عاصم - مرتل , ستصل لك في لحظات ..`")
+    link = "{}{}.mp3".format(url_reciter, num_surah)
+    try: 
+        await client.send_audio(message.chat.id, audio=link)
+    except:
+        await msg.edit_text(text="عذراً ، حدث خطأ")
+
+# ------------------------------------------------
+
+@app.on_message(filters.command(commands='سأختار 🤍', prefixes=['!','/',''], case_sensitive=False) & filters.private)
 async def shoice_reader(client, message):
     keyboard = ReplyKeyboardMarkup(keyboard=[
         [KeyboardButton("القائمة الرئيسية")],
